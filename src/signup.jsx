@@ -27,7 +27,7 @@ return (
                     })}
                 />
                 {errors.username && (
-                    <span className=" text-red-500">{errors.username.message}</span>
+                    <p><span className=" text-red-500">{errors.username.message}</span></p>
                 )}
             </div>
             <div className=" w-full">
@@ -35,16 +35,26 @@ return (
                     title={"Email"}
                     type="text"
                     id="email"
-                    {...register("email")}
+                    {...register("email",{
+                        required:"Email is required",
+                    })}
                 />
+                 {errors.email && (
+                    <p><span className=" text-red-500">{errors.email.message}</span></p>
+                )}
             </div>
             <div>
                 <Input
                     title={"Password"}
                     type="password"
                     id="password"
-                    {...register("password")}
+                    {...register("password",{
+                        required:"password is required",
+                    })}
                 />
+                 {errors.password && (
+                    <p><span className=" text-red-500">{errors.password.message}</span></p>
+                )}
             </div>
             <div>
                 <button
